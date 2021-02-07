@@ -6,6 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+	"serve": "node v10.16.3"
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot --port 3000",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
