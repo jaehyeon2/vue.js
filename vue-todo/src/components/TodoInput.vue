@@ -18,7 +18,7 @@
 			addTodo(){
 				if(this.newTodoItem !== ""){//예외 처리 코드
 					var value = this.newTodoItem&&this.newTodoItem.trim();//텍스트의 앞뒤 공백 문자열 제거
-					localStorage.setItem(value, value);
+					this.$emit("addTodo", value);//app.vue로 이벤트 발생
 					this.clearInput();
 				}
 			},
