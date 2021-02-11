@@ -1,7 +1,7 @@
 <template>
 	<section>
 		<ul>
-			<li v-for="(todoItem, index) in propsdata" class="shadow">
+			<li v-for="(todoItem, index) in propsdata" v-bind:key="todoItem" class="shadow">
 				<i class="checkBtn fas fa-check" aria-hidden="true"></i>
 				{{todoItem}}
 				<span class="removeBtn" type="button" @click="removeTodo(todoItem, index)">
@@ -18,13 +18,6 @@
 		data(){
 			return{
 				todoItems:[]
-			}
-		},
-		created(){
-			if(localStorage.length>0){
-				for(var i=0; i<localStorage.length; i++){
-					this.todoItems.push(localStorage.key(i));//localStorage 데이터를 todoItems에 추가
-				}
 			}
 		},
 		methods:{

@@ -3,7 +3,7 @@
 		<TodoHeader></TodoHeader>
 		<TodoInput v-on:addTodo="addTodo"></TodoInput>
 		<TodoList v-bind:propsdata="todoItems"></TodoList>
-		<TodoFooter></TodoFooter>
+		<TodoFooter v-on:clearAll="clearAll"></TodoFooter>
 	</div>
 </template>
 
@@ -19,11 +19,22 @@
 				todoItems:[]
 			}
 		},
+		created(){
+			if(localStorage.length>0){
+				for(var i=0; i<localStorage.length; i++){
+					this.todoItems.push(localStorage.key(i));//localStorage 데이터를 todoItems에 추가
+				}
+			}
+		},
 		methods:{
 			addTodo(todoItem){
 				//localStorage에 Data 추가 로직
 				localStorage.setItem(todoItem, todoItem);
 				this.todoItems.push(todoItem);
+			},
+			clearAll(){
+				localStorage.clear();
+				this.todoItems=[];
 			}
 		},
 		components: {
