@@ -2,7 +2,7 @@
 	<div id="app">
 		<TodoHeader></TodoHeader>
 		<TodoInput v-on:addTodo="addTodo"></TodoInput>
-		<TodoList v-bind:propsdata="todoItems"></TodoList>
+		<TodoList v-bind:propsdata="todoItems" @removeTodo="removeTodo"></TodoList>
 		<TodoFooter v-on:clearAll="clearAll"></TodoFooter>
 	</div>
 </template>
@@ -31,6 +31,10 @@
 				//localStorage에 Data 추가 로직
 				localStorage.setItem(todoItem, todoItem);
 				this.todoItems.push(todoItem);
+			},
+			removeTodo(todoItem, index){
+				localStorage.removeItem(todoItem);
+				this.todoItems.splice(index, 1);
 			},
 			clearAll(){
 				localStorage.clear();
