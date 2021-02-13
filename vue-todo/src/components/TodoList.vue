@@ -4,8 +4,11 @@
 			<li v-for="(todoItem, index) in propsdata" v-bind:key="todoItem" class="shadow">
 				<i class="checkBtn fas fa-check" aria-hidden="true"></i>
 				{{todoItem}}
+				<span class="editBtn" type="button" @click="editData(todoItem, index)">
+					<i class="fas fa-edit" aria-hidden="true"></i>
+				</span>
 				<span class="removeBtn" type="button" @click="removeTodo(todoItem, index)">
-					<i class="far fa-trash-alt" aria-hidden="true"></i>
+					<i class="fas fa-trash-alt" aria-hidden="true"></i>
 				</span>
 			</li>
 		</transition-group>
@@ -50,6 +53,10 @@
 		margin-right:5px;
 	}
 	.removeBtn{
+		margin-left:auto;
+		color:#de4343;
+	}
+	.editBtn{
 		margin-left:auto;
 		color:#de4343;
 	}
