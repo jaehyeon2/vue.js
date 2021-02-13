@@ -28,7 +28,7 @@
 				this.$emit("removeTodo", todoItem, index);
 			},
 			editTodo(todoItem, index){
-				console.log("edit");
+				
 			}
 		}
 	}
