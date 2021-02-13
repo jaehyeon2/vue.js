@@ -4,7 +4,7 @@
 			<li v-for="(todoItem, index) in propsdata" v-bind:key="todoItem" class="shadow">
 				<i class="checkBtn fas fa-check" aria-hidden="true"></i>
 				{{todoItem}}
-				<span class="editBtn" type="button" @click="editData(todoItem, index)">
+				<span class="editBtn" type="button" @click="editTodo(todoItem, index)">
 					<i class="fas fa-edit" aria-hidden="true"></i>
 				</span>
 				<span class="removeBtn" type="button" @click="removeTodo(todoItem, index)">
@@ -26,6 +26,9 @@
 		methods:{
 			removeTodo(todoItem, index){
 				this.$emit("removeTodo", todoItem, index);
+			},
+			editTodo(todoItem, index){
+				console.log("edit");
 			}
 		}
 	}
@@ -53,7 +56,7 @@
 		margin-right:5px;
 	}
 	.removeBtn{
-		margin-left:auto;
+		margin-left:7px;
 		color:#de4343;
 	}
 	.editBtn{
