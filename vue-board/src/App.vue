@@ -2,7 +2,7 @@
 	<div id="app">
 		<Header></Header>
 		
-		<Content msg="Welcome to Your Vue.js App"></Content>
+		<HelloWorld msg="Welcome to Your Vue.js App"></HelloWorld>
 		
 		<Footer></Footer>
 	</div>
@@ -10,7 +10,7 @@
 
 <script>
 	import Header from "./components/common/boardHeader.vue"
-	import Content from "./components/boardContent.vue"
+	import HelloWorld from "./components/HelloWorld.vue"
 	import Footer from "./components/common/boardFooter.vue"
 	
 	
@@ -18,7 +18,7 @@
 		name:"App",
 		components:{
 			Header,
-			Content,
+			HelloWorld,
 			Footer
 		}
 	}
