@@ -3,11 +3,31 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mysql = require('mysql');  //mysql 모듈 호출
+//var db = require('./config/db'); //db 연결 모듈 호출
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+const dbInfo = {    //db정보 객체로 설정
+	host:'0.0.0.0'
+	,user:'username'
+	,port:'3000'
+	,password:'password'
+	,database:'db_name'
+}
+
+mysql.createConnection(dbInfo).connect((err)=>{ //db 커넥션 연결 확인
+  if(err) {
+    console.log("mysql connect error "+err);
+  } else {
+    console.log("mysql connect success ");
+  }
+})
+//var conn = db.init();  //db 모듈 커넥션 실행
+//db.conn(conn); //db 연결 확인
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
